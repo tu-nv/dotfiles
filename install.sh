@@ -5,13 +5,11 @@
 
 cd ~
 
-DOTFILES=(".vimrc")
-
-for dotfile in $DOTFILES; do
+for dotfile in ".vimrc" ".tmux.conf"; do
 	if test -f ~/$dotfile ; then
    	    echo "old $dotfile exist. backup it now ..."
    	    mv ~/$dotfile ~/$dotfile.bak
-        wget https://raw.githubusercontent.com/tu-nv/dotfiles/master/$dotfile -O ~/$dotfile
-	fi
+    fi
+    wget https://raw.githubusercontent.com/tu-nv/dotfiles/master/$dotfile -O ~/$dotfile
 done
 
